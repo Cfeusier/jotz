@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var ipc = require('ipc');
 var JotzDispatcher = require('../dispatcher/JotzDispatcher');
 var Note = require('./Note');
 
