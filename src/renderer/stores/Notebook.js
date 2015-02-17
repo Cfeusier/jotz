@@ -2,6 +2,7 @@ var ipc = require('ipc');
 var remote = require('remote');
 var path = require('path');
 var utils = remote.require(path.join(__dirname, '../../browser/utils/global.js'));
+var syncFs = remote.require(path.resolve(__dirname, '../../browser/utils/syncFs'));
 var _ = require('underscore');
 var Backbone = require('backbone');
 var JotzDispatcher = require('../dispatcher/JotzDispatcher');

@@ -28,10 +28,11 @@ var NotesAPI = (function() {
   // Public API
   return {
     saveNote: function(note, cb) {
-      var filename = api.noteFilename(note.attributes._id, note.attributes.title);
-      api.findNote(filename, function() {
-          api.writeNote(filename, note.attributes, cb);
-      });
+      // TODO: update with new sync changes
+      //var filename = api.noteFilename(note.attributes._id, note.attributes.title);
+      //api.findNote(filename, function() {
+      //    api.writeNote(filename, note.attributes, cb);
+      //});
     }
   };
 
