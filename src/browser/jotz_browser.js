@@ -4,8 +4,6 @@ var Backbone = require('backbone');
 var React = require('react');
 var path = require('path');
 var BrowserWindow = require('browser-window');
-var ipc = require('ipc');
-var NotesAPI = require('./apis/notes_api');
 
 
 var JotzBrowser = Backbone.Model.extend({
@@ -47,11 +45,6 @@ var JotzBrowser = Backbone.Model.extend({
   },
   handleEvents: function() {
     this.get('mainWindow').on('closed', this.removeWindow.bind(this, 'mainWindow'));
-    ipc.on('save-note', function(e, note) {
-      NotesAPI.saveNote(note, function(result) {
-        e.sender.send('save-note-reply', result);
-      });
-    });
   },
   removeWindow: function(windowName) {
     this.set(windowName, null);
