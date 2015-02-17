@@ -20,5 +20,14 @@ module.exports = {
       <Content notebookStore={props.notebookStore} />,
       document.getElementById('content')
     );
+    props.notebookStore.dispatchCallback({
+      actionType: 'create-note',
+      content: {
+        title: 'Created Test Note Title',
+        blocks: [{}, {}],
+        notebookTitle: "Test Notebook",
+        notebookId: "1sdlkn134ksdfwasdf"
+      }
+    });
   }
 };
