@@ -2,6 +2,8 @@ var fs = require('fs');
 var ipc = require('ipc');
 var utils = require('../utils/global');
 
+// TODO: Add CRUD interface for FsSync
+
 var NotesAPI = (function() {
 
   // Private API

@@ -22,32 +22,22 @@ var Notebook = Backbone.Collection.extend({
         // TODO: display creation/editing view
         break;
       case 'create-note':
-        // add note to notebookstore
-        var note = this.set(this.prepareNoteData(payload), { remove: false });
-        // write note to file system
-        this.saveNote(note);
+        new Note(payload.content).save();
+        break;
+      case 'read-notes':
+        // TODO
+        //this.fetch();
+        break;
+      case 'update-note':
+        //this.update();
+        break;
+      case 'destroy-note':
+        // TODO
+        //this.remove();
         break;
       default:
         break;
     }
-  },
-
-  prepareNoteData: function(payload) {
-    var noteData = {
-      _id: payload.content._id,
-      title: payload.content.title,
-      blocks: payload.content.blocks,
-      notebookTitle: payload.content.notebookTitle,
-      notebookId: payload.content.notebookId
-    };
-    if (!noteData._id) {
-      noteData._id = utils.getIndexBelowMaxForKey(noteData.title);
-    }
-    return noteData;
-  },
-
-  saveNote: function(note) {
-    ipc.send('save-note', note);
   },
 
   handleSaveNoteReply: function(err) {
